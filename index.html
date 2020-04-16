@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinksList</title>
+</head>
+<body>
+    <div class="app">
+        <ul></ul>
+        <input type="text" placeholder="Cole um link novo">
+        <button>Adicionar</button>
+    </div>
+    <script>
+        var listElement = document.querySelector('#app ul')
+        var inputElement = document.querySelector('#app input')
+        var buttonElement = document.querySelector('#app button')
+
+        var lista = []
+
+        function renderLista() {
+            listElement.innerHTML = ''
+            for (item of lista) {
+                var itemElement = document.createElement('li')
+                var itemText = document.createTextNode(item)
+
+                itemElement.appendChild(itemText)
+                listElement.appendChild(itemElement)
+            }
+        }
+        function addLink() {
+            var itemText = inputElement.value
+
+            lista.psuh(itemText) 
+            inputElement.value = ''
+            renderLista()
+        }
+
+        buttonElement.click = addLink
+    </script>
+</body>
+</html>
