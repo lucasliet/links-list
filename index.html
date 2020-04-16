@@ -6,11 +6,13 @@
     <title>LinksList</title>
 </head>
 <body>
-    <div class="app">
+    
+    <div id="app">
         <ul></ul>
         <input type="text" placeholder="Cole um link novo">
         <button>Adicionar</button>
     </div>
+    
     <script>
         var listElement = document.querySelector('#app ul')
         var inputElement = document.querySelector('#app input')
@@ -22,16 +24,19 @@
             listElement.innerHTML = ''
             for (item of lista) {
                 var itemElement = document.createElement('li')
+                var linkElement = document.createElement('a')
                 var itemText = document.createTextNode(item)
 
-                itemElement.appendChild(itemText)
+                linkElement.appendChild(itemText)
+                itemElement.appendChild(linkElement)
                 listElement.appendChild(itemElement)
             }
         }
+        renderLista()
         function addLink() {
             var itemText = inputElement.value
 
-            lista.psuh(itemText) 
+            lista.push(itemText) 
             inputElement.value = ''
             renderLista()
         }
