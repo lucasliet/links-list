@@ -9,7 +9,7 @@
     
     <div id="app">
         <ul></ul>
-        <input type="url" placeholder="Cole um link novo" id="link">
+        <input type="text" placeholder="Cole um link novo" id="link">
         <input type="text" placeholder="Digite um nome pra ele" id="nome">
         <button onclick="addLink()">Adicionar</button>
     </div>
@@ -27,15 +27,23 @@
             for (item of lista) {
                 var itemElement = document.createElement('li')
                 var linkElement = document.createElement('a')
-
+                var deleteBtnElement = document.createElement('button')
+                
+                var deleteBtnText = document.createTextNode('Excluir')
                 var nomeText = document.createTextNode(item.nome)
-
+                
+                deleteBtnElement.appendChild(deleteBtnText)
                 linkElement.appendChild(nomeText)
+
                 linkElement.setAttribute("href", item.link)
+                deleteBtnElement.setAttribute("onclick", `deleteLink(${lista.indexOf(item)})`)
+
                 itemElement.appendChild(linkElement)
+                itemElement.appendChild(deleteBtnElement)
                 listElement.appendChild(itemElement)
             }
         }
+
         renderLista()
         function addLink() {
             var linkText = linkInputElement.value
@@ -50,7 +58,11 @@
             renderLista()
         }
 
-        buttonElement.click = addLink
+        function deleteLink(posicao){
+            lista.splice(posicao, 1)
+            renderLista()
+        }
+
     </script>
 </body>
 </html>
