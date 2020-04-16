@@ -15,27 +15,27 @@
     </div>
     
     <script>
-        var listElement = document.querySelector('#app ul')
+        var listElement      = document.querySelector('#app ul')
         var linkInputElement = document.getElementById('link')
         var nomeInputElement = document.getElementById('nome')
-        var buttonElement = document.querySelector('#app button')
+        var buttonElement    = document.querySelector('#app button')
 
         var lista = []
 
         function renderLista() {
             listElement.innerHTML = ''
             for (item of lista) {
-                var itemElement = document.createElement('li')
-                var linkElement = document.createElement('a')
+                var itemElement      = document.createElement('li')
+                var linkElement      = document.createElement('a')
                 var deleteBtnElement = document.createElement('button')
                 
                 var deleteBtnText = document.createTextNode('Excluir')
-                var nomeText = document.createTextNode(item.nome)
+                var nomeText      = document.createTextNode(item.nome)
                 
                 deleteBtnElement.appendChild(deleteBtnText)
-                linkElement.appendChild(nomeText)
+                linkElement     .appendChild(nomeText)
 
-                linkElement.setAttribute("href", item.link)
+                linkElement     .setAttribute("href", item.link)
                 deleteBtnElement.setAttribute("onclick", `deleteLink(${lista.indexOf(item)})`)
 
                 itemElement.appendChild(linkElement)
