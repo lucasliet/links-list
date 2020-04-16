@@ -9,13 +9,15 @@
     
     <div id="app">
         <ul></ul>
-        <input type="text" placeholder="Cole um link novo">
-        <button>Adicionar</button>
+        <input type="url" placeholder="Cole um link novo" id="link">
+        <input type="text" placeholder="Digite um nome pra ele" id="nome">
+        <button onclick="addLink()">Adicionar</button>
     </div>
     
     <script>
         var listElement = document.querySelector('#app ul')
-        var inputElement = document.querySelector('#app input')
+        var linkInputElement = document.getElementById('link')
+        var nomeInputElement = document.getElementById('nome')
         var buttonElement = document.querySelector('#app button')
 
         var lista = []
@@ -25,19 +27,26 @@
             for (item of lista) {
                 var itemElement = document.createElement('li')
                 var linkElement = document.createElement('a')
-                var itemText = document.createTextNode(item)
 
-                linkElement.appendChild(itemText)
+                var nomeText = document.createTextNode(item.nome)
+
+                linkElement.appendChild(nomeText)
+                linkElement.setAttribute("href", item.link)
                 itemElement.appendChild(linkElement)
                 listElement.appendChild(itemElement)
             }
         }
         renderLista()
         function addLink() {
-            var itemText = inputElement.value
+            var linkText = linkInputElement.value
+            var nomeText = nomeInputElement.value
+            
+            lista.push({link: linkText, nome: nomeText}) 
 
-            lista.push(itemText) 
-            inputElement.value = ''
+            var inputList = document.querySelectorAll('input')
+            for (input of inputList){
+                input.value = ''
+            }
             renderLista()
         }
 
