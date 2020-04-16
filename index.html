@@ -17,8 +17,10 @@
             background-color: #9a8ca3;
             border-radius: .40rem;
             color: white;
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
         }
         #app{
+            position: relative;
             margin-left: auto;
             margin-right: auto;
             width: 50rem;
@@ -26,11 +28,11 @@
             background-color: rgba(238, 238, 238, 0.884);
             padding-left: 5rem;
             padding-right: 5rem;
-            padding-bottom: 3rem;
+            padding-bottom: 10rem;
             padding-top: 2rem;
             border-radius: .65rem;
             border: #222;
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
         }
         a{
             margin: .40rem;
@@ -39,11 +41,18 @@
             background-color: #ede;
             color: #222;
             border-radius: .65rem;
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
         }
-        a:hover{background-color: rgb(235, 215, 235);}
+        a:hover{
+            background-color: rgb(235, 215, 235);
+            transition: background-color 0.2s;
+        }
         li{margin:1rem;}
-        button:hover{background-color: #675f6e;}
+        button:hover{
+            background-color: #675f6e;
+            transition: background-color 0.4s;
+        }
+        button:active{transform: scale(0.9);}
         button{
             background-color: #9a8ca3;
             color: white;
@@ -59,11 +68,10 @@
             font-size: 1rem;
             line-height: 1.5;
             border-radius: .25rem;
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
-            transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
         }
         .inputs{
-            margin-left: 2rem;
+            margin-left: 1.5rem;
         }
         input{
             margin: .40rem;
@@ -72,19 +80,24 @@
             border-radius: .23rem;
             box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
         }
-        
+        .logo{
+            position: absolute;
+            right: 3rem;
+            bottom: 3rem;
+        }
     </style>
 </head>
 <body>
     
     <div id="app">
         <h1>Lista de Links</h1>
-        <ul></ul>
+        <img class="logo" src="https://www.stremio.com/website/stremio-logo-small.png" alt="Stremio Logo">
         <div class="inputs">
             <input type="text" placeholder="Cole um link novo" id="link" required>
             <input type="text" placeholder="Digite um nome pra ele" id="nome" required>
             <button onclick="addLink()">Adicionar</button>
         </div>
+        <ul></ul>
     </div>
     
     <script>
