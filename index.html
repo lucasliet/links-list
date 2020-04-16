@@ -81,8 +81,8 @@
         <h1>Lista de Links</h1>
         <ul></ul>
         <div class="inputs">
-            <input type="text" placeholder="Cole um link novo" id="link">
-            <input type="text" placeholder="Digite um nome pra ele" id="nome">
+            <input type="text" placeholder="Cole um link novo" id="link" required>
+            <input type="text" placeholder="Digite um nome pra ele" id="nome" required>
             <button onclick="addLink()">Adicionar</button>
         </div>
     </div>
@@ -119,17 +119,21 @@
 
         renderLista()
         function addLink() {
-            var linkText = linkInputElement.value
-            var nomeText = nomeInputElement.value
-            
-            lista.push({link: linkText, nome: nomeText}) 
-
-            var inputList = document.querySelectorAll('input')
-            for (input of inputList){
-                input.value = ''
+            if (linkInputElement.value && nomeInputElement.value){
+                var linkText = linkInputElement.value
+                var nomeText = nomeInputElement.value
+                
+                lista.push({link: linkText, nome: nomeText}) 
+                
+                var inputList = document.querySelectorAll('input')
+                for (input of inputList){
+                    input.value = ''
+                }
+                renderLista()
+                saveStorage()
+            } else {
+                alert('Preencha os campos')
             }
-            renderLista()
-            saveStorage()
         }
 
         function deleteLink(posicao){
