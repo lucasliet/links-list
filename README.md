@@ -4,7 +4,7 @@ Simples página HTML para você salvar uma lista de links
 o intuito desse projeto foi salvar uma lista de magnet links para poder ser aberto em apps streaming de torrents como o [Stremio](https://strem.io), já que ele não fornece uma lista de favoritos para links externos
 
 ## Como usar
-você pode [salvar o projeto no seu PC](https://github.com/lucasliet/links-list/archive/v1.zip), e abrir o HTML diretamente
+você pode [salvar o projeto no seu PC](https://github.com/lucasliet/links-list/archive/master.zip), e abrir o HTML diretamente
 
 ou adicionar a [página online](https://lucasliet.github.io/links-list/) nos seus Favoritos
 
