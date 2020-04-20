@@ -4,88 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LinksList</title>
-    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Favicon_Framasoft.svg/512px-Favicon_Framasoft.svg.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2&display=swap" rel="stylesheet">
-    <style>
-        body{
-            background-image: url(https://www.primexplastics.com/wp-content/uploads/2015/10/texture-seville.jpg);
-            font-family: 'Baloo Paaji 2', cursive;
-            background-size: 100%;
-        }
-        h1{
-            text-align: center;
-            background-color: #9a8ca3;
-            border-radius: .40rem;
-            color: white;
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
-        }
-        #app{
-            position: relative;
-            margin-left: auto;
-            margin-right: auto;
-            width: 50rem;
-            margin-top: 5rem;
-            background-color: rgba(238, 238, 238, 0.884);
-            padding-left: 5rem;
-            padding-right: 5rem;
-            padding-bottom: 10rem;
-            padding-top: 2rem;
-            border-radius: .65rem;
-            border: #222;
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
-        }
-        a{
-            margin: .40rem;
-            padding: .27rem 1rem;
-            text-decoration: none;
-            background-color: #ede;
-            color: #222;
-            border-radius: .65rem;
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
-        }
-        a:hover{
-            background-color: rgb(235, 215, 235);
-            transition: background-color 0.2s;
-        }
-        li{margin:1rem;}
-        button:hover{
-            background-color: #675f6e;
-            transition: background-color 0.4s;
-        }
-        button:active{transform: scale(0.9);}
-        button{
-            background-color: #9a8ca3;
-            color: white;
-            cursor:pointer;
-            display: inline-block;
-            font-weight: 400;
-            text-align: center;
-            white-space: nowrap;
-            vertical-align: middle;
-            user-select: none;
-            border: 1px solid transparent;
-            padding: .2rem .4rem;
-            font-size: 1rem;
-            line-height: 1.5;
-            border-radius: .25rem;
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
-        }
-        .inputs{
-            margin-left: 1.5rem;
-        }
-        input{
-            margin: .40rem;
-            padding: .31rem;
-            border: #222;
-            border-radius: .23rem;
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
-        }
-        .logo{
-            position: absolute;
-            right: 3rem;
-            bottom: 3rem;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
@@ -95,69 +16,11 @@
         <div class="inputs">
             <input type="text" placeholder="Cole um link novo" id="link" required>
             <input type="text" placeholder="Digite um nome pra ele" id="nome" required>
-            <button onclick="addLink()">Adicionar</button>
+            <button>Adicionar</button>
         </div>
         <ul></ul>
     </div>
-    
-    <script>
-        var listElement      = document.querySelector('#app ul')
-        var linkInputElement = document.getElementById('link')
-        var nomeInputElement = document.getElementById('nome')
 
-        var lista = JSON.parse(localStorage.getItem("savedList")) || []
-
-        function renderLista() {
-            listElement.innerHTML = ''
-
-            for (item of lista) {
-                var itemElement   = document.createElement('li')
-                var linkElement   = document.createElement('a')
-                var buttonElement = document.createElement('button')
-                
-                var buttonText = document.createTextNode('Excluir')
-                var nomeText   = document.createTextNode(item.nome)
-                
-                buttonElement.appendChild(buttonText)
-                linkElement     .appendChild(nomeText)
-
-                linkElement  .setAttribute("href", item.link)
-                buttonElement.setAttribute("onclick", `deleteLink(${lista.indexOf(item)})`)
-
-                itemElement.appendChild(linkElement)
-                itemElement.appendChild(buttonElement)
-                listElement.appendChild(itemElement)
-            }
-        }
-
-        renderLista()
-        function addLink() {
-            if (linkInputElement.value && nomeInputElement.value){
-                var linkText = linkInputElement.value
-                var nomeText = nomeInputElement.value
-                
-                lista.push({link: linkText, nome: nomeText}) 
-                
-                var inputList = document.querySelectorAll('input')
-                for (input of inputList){
-                    input.value = ''
-                }
-                renderLista()
-                saveStorage()
-            } else {
-                alert('Preencha os campos')
-            }
-        }
-
-        function deleteLink(posicao){
-            lista.splice(posicao, 1)
-            renderLista()
-            saveStorage()
-        }
-
-        function saveStorage(){
-            localStorage.setItem("savedList",JSON.stringify(lista))
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

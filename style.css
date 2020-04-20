@@ -1,0 +1,78 @@
+body{
+    background-image: url(img/background.jpg);
+    font-family: 'Baloo Paaji 2', cursive;
+    background-size: 100%;
+}
+h1{
+    text-align: center;
+    background-color: #9a8ca3;
+    border-radius: .40rem;
+    color: white;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+#app{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50rem;
+    margin-top: 5rem;
+    background-color: rgba(238, 238, 238, 0.884);
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-bottom: 10rem;
+    padding-top: 2rem;
+    border-radius: .65rem;
+    border: #222;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+a{
+    margin: .40rem;
+    padding: .27rem 1rem;
+    text-decoration: none;
+    background-color: #ede;
+    color: #222;
+    border-radius: .65rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+a:hover{
+    background-color: rgb(235, 215, 235);
+    transition: background-color 0.2s;
+}
+li{margin:1rem;}
+button:hover{
+    background-color: #675f6e;
+    transition: background-color 0.4s;
+}
+button:active{transform: scale(0.9);}
+button{
+    background-color: #9a8ca3;
+    color: white;
+    cursor:pointer;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .2rem .4rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+.inputs{
+    margin-left: 1.5rem;
+}
+input{
+    margin: .40rem;
+    padding: .31rem;
+    border: #222;
+    border-radius: .23rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+}
+.logo{
+    position: absolute;
+    right: 3rem;
+    bottom: 3rem;
+}
