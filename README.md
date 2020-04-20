@@ -8,5 +8,7 @@ você pode [salvar o projeto no seu PC](https://github.com/lucasliet/links-list/
 
 ou adicionar a [página online](https://lucasliet.github.io/links-list/) nos seus Favoritos
 
+![Como Usar](https://user-images.githubusercontent.com/49222261/79782857-1995fa80-8316-11ea-9721-6f850d1f2b31.gif)
+
 ## Como funciona
 toda a estrutura é feita em Javascript, onde ele armazena e exibe em tela os links adicionados, possibilita deletar os links que quiser através do botão excluir, e armazena toda a informação por cookies, você pode sair e entrar de novo no navegador que sua lista ainda estará la, **PORÉM** se deletar seus cookies, ou abrir em outro navegador, a lista irá sumir
